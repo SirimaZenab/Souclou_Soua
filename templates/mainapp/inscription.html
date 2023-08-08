@@ -1,0 +1,78 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}
+  Inscription
+{% endblock title %}
+{% block lien %}<link href="{% static 'assets/css/inscription.css' %}" rel="stylesheet"> {% endblock lien %}
+
+
+{% include 'includes/nav1.html' %}
+
+{% block content %}
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="">
+      
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Courses Section ======= -->
+    <section id="discipline" class="quick-link quick-link-style5">
+      <div class="container ">
+        <h2 class="Form-breadcrumbs">Formulaire d'inscription</h2>
+      </div>
+      <div class="container row content- form-cont">
+        <div class="container content">
+           <img src="{% static 'assets/img/testimonials/heart-3117389_1280.jpg' %}"  alt="header-image" class="cld-responsive">
+                <h1 class="form-title text-center">Inscrivez-vous ici</h1>
+                <form method="post" action="{{ action_url }}">
+                  <p class="color-danger">{{ form_user.errors }}</p>
+                  <p class="color-danger">{{ form_inscription.errors }}</p>
+                    {% csrf_token %}
+                    <div class="beside">
+                        {{ form_user.last_name.label }}
+                        {{ form_user.last_name }}
+                        {% if form_user.last_name.error_messages %}
+                          {{ form_user.last_name.error_messages }}
+                        {% endif %}
+                          {{ form_inscription.sexe.label }}
+                        {{ form_inscription.sexe }}
+
+                    </div>
+                    <div class="beside">
+                        {{ form_user.first_name.label }}
+                        {{ form_user.first_name }}
+                        {{ form_inscription.statut.label }}
+                        {{ form_inscription.statut }}
+                    </div>
+                    <div class="beside">
+                        {{ form_inscription.numero_telephone }}
+                        {{ form_inscription.niveau }}
+                    </div>
+                    <div class="beside">
+                        {{ form_user.password1 }}
+                        {% if form_user.password1.error_messages %}
+                          {{ form_user.password1.error_messages }}
+                        {% endif %}
+                        {{ form_inscription.etablissement }}
+                    </div>
+                    <div class="beside">
+                        {{ form_user.password2 }}
+                        {% if form_user.password2.error_messages %}
+                          {{ form_user.password2.error_messages }}
+                        {% endif %}
+                        Email
+                        {{ form_user.username }}
+                    </div>
+                    <button type="submit">S'inscrire</button>
+                </form>
+        </div>
+      </div>
+    </section>
+    <!-- End Courses Section -->
+  </main>
+<!-- End #main -->
+{% endblock content %}
+
+{% include 'includes/footer.html' %}

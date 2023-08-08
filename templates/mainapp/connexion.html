@@ -1,0 +1,61 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}
+  Connexion
+{% endblock title %}
+{% block lien %}<link href="{% static 'assets/css/connexion.css' %}" rel="stylesheet"> {% endblock lien %}
+
+
+{% block content %}
+  <section>
+    <div class="LoginPageContainer">
+      <div class="LoginPageInnerContainer">
+          <div class="ImageContianer">
+              <img src="https://i.imgur.com/MYZd7of.png" class="GroupImage">
+          </div>
+          <div class="LoginFormContainer">
+              <div class="LoginFormInnerContainer">
+                  <header class="header">Connexion</header>
+                  <header class="subHeader">Bienvenue sur notre <b> page connexion ! </b> Veuiller entrer vos coordonnées</header>
+  
+                  <!-- templates/mainapp/connexion.html -->
+                   <form method="post" action="{% url 'connexion' %}">
+                        {% csrf_token %}
+                        <div class="inputContainer row">
+                            <div class="row">
+                                {{form.username.label}}
+                            </div>
+                            {{form.username}}
+                        </div>
+                        <div class="inputContainer row">
+                            <div class="row">
+                                {{form.password.label}}
+                            </div>
+                            {{form.password}}
+                        </div>
+                        <div class="OptionsContainer">
+                            <div class="checkboxContainer">
+                                <input type="checkbox" id="RememberMe" class="checkbox" name="remember_me"> <label for="RememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="ForgotPasswordLink">Mot de passe Oublié ?</a>
+                        </div>
+    <button class="LoginButton" style="background-color:#60e693" type="submit">connexion</button>
+</form>
+
+{% if error_message %}
+    <p>{{ error_message }}</p>
+{% endif %}
+
+<div class="question_inscrit">
+    <p>Vous n'avez pas de compte ?   <a href="{% url 'inscription' %}" class="ForgotPasswordLink"> S'inscrire</a></p>
+</div>
+
+
+              </div>
+          </div>
+      </div>
+    </div>
+  </section>
+  <!-- End #main -->
+{% endblock content %}

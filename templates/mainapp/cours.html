@@ -1,0 +1,106 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}
+  Cours
+{% endblock title %}
+
+{% include 'includes/nav1.html' %}
+
+{% block content %}
+
+<!-- start #main -->
+  <main id="main">
+
+    <!-- Main-body start -->
+      <div class="main-body">
+          <div class="page-wrapper">
+
+              <!-- Page header start -->
+              <div class="page-header">
+                  <div class="page-header-title">
+                      <h4><strong>Mon espace d'accès aux cours</strong></h4>
+                  </div>
+                  <div class="page-header-breadcrumb">
+                      <ul class="breadcrumb-title">
+                          <li class="breadcrumb-item">
+                              <a href="https://scolarite.uvci.edu.ci/Etudiant">
+                                  <i class="icofont icofont-home"></i>
+                              </a>
+                          </li>
+                          <li class="breadcrumb-item"><a href="">Etudiants</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <!-- Page header end -->
+              
+              <div class="page-body">
+                  <div class="row">
+                      <div class="col-sm-12">
+
+                          <!-- Basic Form Inputs card end -->
+                            <div class="card">
+                              <div class="card-header" style="text-align: center;">
+                                  <h5 style="padding: 20px;"><i class='bx bxs-user'></i>Mon espace d'accès aux cours</h5>
+                                  <div class="card-header-right">
+                                      <i class="icofont icofont-rounded-down"></i>
+                                      <!-- <i class="icofont icofont-refresh"></i>
+                                      <i class="icofont icofont-close-circled"></i> -->
+                                  </div>
+                              </div>
+                              
+                              <div class="card-block">
+  
+                                  <div class="dt-responsive table-responsive">
+                                      <table id="new-cons" class="table table-striped table-bordered nowrap">
+                                          <thead>
+                                              <tr>
+                                                  <th>Classe</th>
+                                                  <!--<th>Début des cours</th>-->
+                                                  <th>Plateforme</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                                                                      
+                                                  
+                                              <tr>
+                                                  <td> Troisième(3EME)</td>
+                                                 <!-- <td><strong></strong></td>-->
+                                                  <td> 
+                                                      <a href="{% url 'tableau_board' %}" target="_blank" titre="Aller sur mon espace campus"><button type="submit" class="btn btn-uvci"> &nbsp;Aller au cours</button></a>
+                                                  </td>
+                                              </tr>
+                                              
+                                               <tr>
+                                                  <td>Terminale(Tle)</td>
+                                                 <!-- <td><strong></strong></td>-->
+                                                  <td> 
+                                                      <a href="{% url 'tableau_board' %}" target="_blank" titre="Aller sur mon espace campus"><button type="submit" class="btn btn-uvci"> &nbsp;Aller au cours</button></a>
+                                                  </td>
+                                              </tr>
+                                                                                          
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                              
+                          </div>  
+  
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    <!-- Main-body end -->
+
+
+
+
+    <!-- End Cource Details Section -->
+
+  </main><!-- End #main -->
+  
+  {% endblock content %}
+
+  {% include 'includes/footer.html' %}
